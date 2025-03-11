@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN IN : LOGIN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1a1a1a;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .background-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            animation: zoom 20s infinite alternate;
+        }
+
+        .background-container::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        @keyframes zoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 50px 60px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 69, 0, 0.2);
+            width: 500px;
+            transform: translateY(0);
+            animation: float 4s ease-in-out infinite;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        h1::after {
+            content: '🥩';
+            position: absolute;
+            right: -10px;
+            top: -15px;
+            font-size: 0.8em;
+        }
+
+        .input-group {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ff4500;
+            outline: none;
+            box-shadow: 0 0 15px rgba(255, 69, 0, 0.3);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(45deg, #ff4500, #8B0000);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .login-btn:hover {
+            background: linear-gradient(45deg, #8B0000, #ff4500);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+        }
+
+        .social-login {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .social-login p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-icon:hover {
+            background: #ff4500;
+            transform: scale(1.1);
+        }
+
+        .extra-links {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .extra-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .extra-links a:hover {
+            color: #ff4500;
+        }
+
+        .meat-pattern {
+            position: absolute;
+            width: 200px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .meat-pattern.top-left {
+            top: -50px;
+            left: -50px;
+            transform: rotate(-30deg);
+        }
+
+        .meat-pattern.bottom-right {
+            bottom: -50px;
+            right: -50px;
+            transform: rotate(210deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container" style="background: url('https://images.unsplash.com/photo-1558030006-450675393462') center/cover;"></div>
+
+    <div class="login-container">
+        <h1>Meat King Login</h1>
+        
+        <img src="https://www.freeiconspng.com/uploads/steak-png-5.png" class="meat-pattern top-left" alt="meat decoration">
+        <img src="https://www.freeiconspng.com/uploads/steak-png-5.png" class="meat-pattern bottom-right" alt="meat decoration">
+
+        <form>
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" placeholder="Enter your username">
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" placeholder="••••••••">
+            </div>
+
+            <button type="submit" class="login-btn">SIGN IN</button>
+        </form>
+
+        <div class="social-login">
+            <p>Or continue with</p>
+            <div class="social-icons">
+                <div class="social-icon"><i class="fab fa-google"></i></div>
+                <div class="social-icon"><i class="fab fa-facebook-f"></i></div>
+                <div class="social-icon"><i class="fab fa-apple"></i></div>
+            </div>
+        </div>
+
+        <div class="extra-links">
+            <a href="#">Forgot Password?</a>
+            <span style="color: rgba(255,255,255,0.3)"> | </span>
+            <a href="#">Create Account</a>
+        </div>
+    </div>
+
+    <script>
+        // Simple background animation
+        const backgrounds = [
+            "url('https://images.unsplash.com/photo-1558030006-450675393462')",
+            "url('https://images.unsplash.com/photo-1588168333986-5078d3ae3976')",
+            "url('https://images.unsplash.com/photo-1551024506-0bccd828d307')"
+        ];
+
+        let currentBg = 0;
+        const bgContainer = document.querySelector('.background-container');
+
+        function changeBackground() {
+            currentBg = (currentBg + 1) % backgrounds.length;
+            bgContainer.style.backgroundImage = backgrounds[currentBg];
+            bgContainer.style.opacity = 0;
+            
+            setTimeout(() => {
+                bgContainer.style.opacity = 1;
+            }, 1000);
+        }
+
+        setInterval(changeBackground, 5000);
+    </script>
+</body>
+</html>
